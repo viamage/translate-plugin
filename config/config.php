@@ -11,7 +11,7 @@ return [
     | ( For now only used in the alternate-hreflang component )
     |
     */
-    'prefixDefaultLocale' => true,
+    'prefixDefaultLocale' => env('TRANSLATE_PREFIX_DEFAULT_LOCALE', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -24,6 +24,6 @@ return [
     | ( For example 43200 for 30 days or 525600 for one year )
     |
     */
-    'cacheTimeout'        => 1440,
+    'cacheTimeout'        => env('TRANSLATE_CACHE_TIMEOUT',1440),
 
 ];

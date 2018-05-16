@@ -9,6 +9,8 @@ use RainLab\Translate\Models\Message;
 use RainLab\Translate\Classes\EventRegistry;
 use Exception;
 
+use Config;
+
 /**
  * Translate Plugin Information File
  */
@@ -98,6 +100,12 @@ class Plugin extends PluginBase
         Event::listen('pages.page.getMenuCacheKey', $modifyKey);
         Event::listen('pages.snippet.getMapCacheKey', $modifyKey);
         Event::listen('pages.snippet.getPartialMapCacheKey', $modifyKey);
+
+        /**
+         * Publish plugin config
+         */
+        $configPath = base_path().'/plugins/rainlab/translate/config/config.php';
+        $this->publishes([$configPath => config_path('/rainlab/translate/config.php')], 'config');
     }
 
     public function registerComponents()
